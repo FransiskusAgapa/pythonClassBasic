@@ -62,9 +62,17 @@ class Order:
         self.quantity = quantity
 
 first_order = Order("Vietnamese Pho", 5,12.50,1)
+second_order = Order("Spice Waala",3,10.99,2)
 
 print("\n= 1st Food Order =")
 print(f"Food : {first_order.food}")
 print(f"Spice Level: {first_order.spice_level}")
 print(f"Price: {first_order.price}")
 print(f"Quantity: {first_order.quantity}")
+
+print("\n= 2nd Food Order =")
+print(f"Food : {second_order.food}")
+print(f"Spice Level: {second_order.spice_level}")
+print(f"Price: {second_order.price}")
+print(f"Quantity: {second_order.quantity}")
+
