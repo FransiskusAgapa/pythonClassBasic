@@ -37,3 +37,18 @@ print(student_two.age)
 print(student_two.major)
 print(student_two.gpa)
 
+
+# add third student
+student_three = student()
+student_three.fname = "Luka"
+student_three.lname = "Djon"
+student_three.age = 19
+student_three.major = "Criminology"
+student_three.gpa = 3.5
+print("\nThird Student")
+print(student_three.fname)
+print(student_three.lname)
+print(student_three.gender)
+print(student_three.age)
+print(student_three.major)
+print(student_three.gpa)
