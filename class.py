@@ -63,6 +63,7 @@ class Order:
 
 first_order = Order("Vietnamese Pho", 5,12.50,1)
 second_order = Order("Spice Waala",3,10.99,2)
+third_order = Order("Korean BBQ",4,13.10,3)
 
 print("\n= 1st Food Order =")
 print(f"Food : {first_order.food}")
@@ -76,3 +77,8 @@ print(f"Spice Level: {second_order.spice_level}")
 print(f"Price: {second_order.price}")
 print(f"Quantity: {second_order.quantity}")
 
+print("\n= 3rd Food Order =")
+print(f"Food : {third_order.food}")
+print(f"Spice Level: {third_order.spice_level}")
+print(f"Price: {third_order.price}")
+print(f"Quantity: {third_order.quantity}")
