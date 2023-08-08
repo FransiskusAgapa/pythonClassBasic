@@ -52,3 +52,19 @@ print(student_three.gender)
 print(student_three.age)
 print(student_three.major)
 print(student_three.gpa)
+
+# restaurant order
+class Order:
+    def __init__(self, food, spice_level, price, quantity):
+        self.food = food
+        self.spice_level = spice_level #  1- 5 - 5 being the spiciest
+        self.price = price
+        self.quantity = quantity
+
+first_order = Order("Vietnamese Pho", 5,12.50,1)
+
+print("\n= 1st Food Order =")
+print(f"Food : {first_order.food}")
+print(f"Spice Level: {first_order.spice_level}")
+print(f"Price: {first_order.price}")
+print(f"Quantity: {first_order.quantity}")
