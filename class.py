@@ -218,3 +218,36 @@ camper_five.display_info().enroll().display_info().skip_class().skip_class().ski
 # 6th campers
 camper_six = SummerCamper("Lina","Pedro","Participant","Sophomore")
 camper_six.display_info().enroll().display_info().skip_class().skip_class()
+
+# Bank Account
+print("\n= Bank Account =")
+class Bank:
+    num_of_account = 0
+    def __init__(self,name,balance):
+        self.name = name
+        self.balance = balance
+        Bank.num_of_account += 1
+    
+    def deposit(self,amount):
+        self.balance += amount
+        return self
+    
+    def withdraw(self,amount):
+        if(self.balance > amount):
+            self.balance -= amount
+            print(f"${amount} successfully withdrawn!")
+        else:
+            print("Insufficient balance!")
+        return self
+    
+    @classmethod
+    def sum_of_account(cls):
+        print(f"{cls.num_of_account} account/s registered")
+    
+account_one = Bank("Lenny",100000)
+account_two = Bank("Buddy",50000)
+account_three = Bank("Angel",200000)
+
+# call a class method
+Bank.sum_of_account()
+    
