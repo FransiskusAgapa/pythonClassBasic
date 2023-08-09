@@ -1,3 +1,5 @@
+import math
+
 class student:
     def __init__(self):
         self.fname = "No-First-Name-Specified"
@@ -82,3 +84,36 @@ print(f"Food : {third_order.food}")
 print(f"Spice Level: {third_order.spice_level}")
 print(f"Price: {third_order.price}")
 print(f"Quantity: {third_order.quantity}")
+
+
+# Shoe Store
+
+class Shoe:
+    def __init__(self, brand, price, quantity, in_stock):
+        self.brand = brand
+        self.price = price 
+        self.quantity = quantity
+        self.in_stock = in_stock
+
+    def price_n_quantity(self):
+        self.price = self.price * self.quantity
+    
+    #on-sale price reduction
+    def on_sale_by_percentage(self,percentage):
+        self.price = math.trunc(self.price * ( 1 - percentage))
+
+    # price tax
+    def add_tax(self, tax):
+        return math.trunc(tax + self.price)
+
+tax_value = 6
+print("\n= 1st Shoe Order =")
+shoe_one = Shoe("Nike",55.10,2,True)
+print(f"Brand: {shoe_one.brand}")
+print(f"Price per pairs: ${shoe_one.price}")
+shoe_one.price_n_quantity() # call this method/function to update price based on quantity
+print(f"Price for {shoe_one.quantity} pairs: ${shoe_one.price}")
+shoe_one.on_sale_by_percentage(0.2) # call this method/function to update price based on sale percentage
+print(f"Price after {0.2 * 100}% sale: ${shoe_one.price}")
+print(f"Price before tax: ${shoe_one.price}")
+print(f"Price Total (plus tax ${tax_value}): tax: ${shoe_one.add_tax(tax_value)}")
