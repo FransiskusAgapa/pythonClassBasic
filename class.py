@@ -95,25 +95,44 @@ class Shoe:
         self.quantity = quantity
         self.in_stock = in_stock
 
+    # update price based on quantity
     def price_n_quantity(self):
         self.price = self.price * self.quantity
     
     #on-sale price reduction
     def on_sale_by_percentage(self,percentage):
-        self.price = math.trunc(self.price * ( 1 - percentage))
+        self.price = math.trunc(self.price * ( 1 - percentage)) # math.trunc(num) - throws away remainder
 
     # price tax
     def add_tax(self, tax):
         return math.trunc(tax + self.price)
 
+
+def convert_to_percentage(sale_val = 0):
+    return sale_val * 100
+
+# 1st shoes
 tax_value = 6
+sale_percentage = 0.2
 print("\n= 1st Shoe Order =")
 shoe_one = Shoe("Nike",55.10,2,True)
 print(f"Brand: {shoe_one.brand}")
 print(f"Price per pairs: ${shoe_one.price}")
 shoe_one.price_n_quantity() # call this method/function to update price based on quantity
 print(f"Price for {shoe_one.quantity} pairs: ${shoe_one.price}")
-shoe_one.on_sale_by_percentage(0.2) # call this method/function to update price based on sale percentage
-print(f"Price after {0.2 * 100}% sale: ${shoe_one.price}")
-print(f"Price before tax: ${shoe_one.price}")
-print(f"Price Total (plus tax ${tax_value}): tax: ${shoe_one.add_tax(tax_value)}")
+shoe_one.on_sale_by_percentage(sale_percentage) # call this method/function to update price based on sale percentage
+print(f"Price after {convert_to_percentage(sale_percentage)}% sale: ${shoe_one.price}")
+print(f"Price Total (after tax ${tax_value}): ${shoe_one.add_tax(tax_value)}")
+
+# 2nd shoes
+tax_value = 4
+sale_percentage = 0.1
+print("\n= 2nd Shoe Order =")
+shoe_two = Shoe("Vans",50.40, 3, True)
+print(f"Brand: {shoe_two.brand}")
+print(f"Price per pairs: ${shoe_two.price}")
+shoe_two.price_n_quantity() # update price
+print(f"Price for {shoe_two.quantity} pairs: ${shoe_two.price}")
+shoe_two.on_sale_by_percentage(sale_percentage)
+print(f"Price after {convert_to_percentage(sale_percentage)}% sale: ${shoe_two.price}")
+print(f"Price Total (after tax ${tax_value}): ${shoe_two.add_tax(tax_value)}")
