@@ -101,7 +101,7 @@ class Shoe:
     
     #on-sale price reduction
     def on_sale_by_percentage(self,percentage):
-        self.price = math.trunc(self.price * ( 1 - percentage)) # math.trunc(num) - throws away remainder
+        self.price = math.trunc(self.price * ( 1 - percentage)) # math.trunc(num) - throws away reminder to 2 number after comma
 
     # price tax
     def add_tax(self, tax):
@@ -133,6 +133,19 @@ print(f"Brand: {shoe_two.brand}")
 print(f"Price per pairs: ${shoe_two.price}")
 shoe_two.price_n_quantity() # update price
 print(f"Price for {shoe_two.quantity} pairs: ${shoe_two.price}")
-shoe_two.on_sale_by_percentage(sale_percentage)
+shoe_two.on_sale_by_percentage(sale_percentage) # update price with sale percentage
 print(f"Price after {convert_to_percentage(sale_percentage)}% sale: ${shoe_two.price}")
 print(f"Price Total (after tax ${tax_value}): ${shoe_two.add_tax(tax_value)}")
+
+# 3rd shoes
+tax_value = 8
+sale_percentage = 0.3
+print("\n= 3rd Shoe Order =")
+shoe_three = Shoe("Adidas",80.59,4,True)
+print(f"Brand: {shoe_three.brand}")
+print(f"Price per pairs: ${shoe_three.price}")
+shoe_three.price_n_quantity() # update price
+print(f"Price for {shoe_three.quantity} pairs: ${shoe_three.price}")
+shoe_three.on_sale_by_percentage(sale_percentage) # update price with sale percentage
+print(f"Price after {convert_to_percentage(sale_percentage)}% sale: ${shoe_three.price}")
+print(f"Price Total (after tax ${tax_value}): ${shoe_three.add_tax(tax_value)}")
