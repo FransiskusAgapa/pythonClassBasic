@@ -276,10 +276,10 @@ account_one.withdraw(9000)
 account_three.withdraw(10000)
 account_three.withdraw(200000)
 
-# call a class method - number of account
+# call a classmethod - number of account
 Bank.sum_of_account()
 
-# call a static method
+# call a staticmethod
 account_one.is_millionaire(account_one.balance)
 account_two.is_millionaire(account_two.balance)
 account_three.is_millionaire(account_three.balance)
