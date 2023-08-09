@@ -249,6 +249,14 @@ class Bank:
     def sum_of_account(cls):
         print(f"{cls.num_of_account} account/s registered")
     
+    @staticmethod
+    def is_millionaire(balance):
+        if(balance > 100000):
+            print("\nYou are a millionaire!!")
+        else:
+            print("\nYou are not a millionaire yet!")
+        
+# create new accounts   
 account_one = Bank("Lenny",100000)
 account_two = Bank("Buddy",50000)
 account_three = Bank("Angel",200000)
@@ -260,14 +268,18 @@ account_three.display_account()
 
 # deposit
 account_one.deposit(50000)
-account_two.deposit(10000)
-account_three.deposit(60000)
+account_two.deposit(70000)
+account_three.deposit(80000)
 
 # withdraw
-account_one.withdraw(90000)
-account_three.withdraw(110000)
-account_three.withdraw(220000)
+account_one.withdraw(9000)
+account_three.withdraw(10000)
+account_three.withdraw(200000)
 
-# call a class method
+# call a class method - number of account
 Bank.sum_of_account()
-    
+
+# call a static method
+account_one.is_millionaire(account_one.balance)
+account_two.is_millionaire(account_two.balance)
+account_three.is_millionaire(account_three.balance)
