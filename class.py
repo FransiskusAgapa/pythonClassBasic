@@ -1,6 +1,7 @@
 import math
 
 # Students
+print("\n== Students ==\n")
 class student:
     def __init__(self):
         self.fname = "No-First-Name-Specified"
@@ -17,7 +18,7 @@ first_student.lname = "Anny"
 first_student.gender = "Female"
 first_student.age = 20
 first_student.gpa = 3.5
-print("\n= 1st Student =")
+print("= 1st Student =")
 print(first_student.fname)
 print(first_student.lname)
 print(first_student.gender)
@@ -48,7 +49,7 @@ student_three.lname = "Djon"
 student_three.age = 19
 student_three.major = "Criminology"
 student_three.gpa = 3.5
-print("\nThird Student")
+print("\n3rd Student")
 print(student_three.fname)
 print(student_three.lname)
 print(student_three.gender)
@@ -57,6 +58,7 @@ print(student_three.major)
 print(student_three.gpa)
 
 # Restaurant Order
+print("\n== Restaurant Order ==\n")
 class Order:
     def __init__(self, food, spice_level, price, quantity):
         self.food = food
@@ -68,7 +70,7 @@ first_order = Order("Vietnamese Pho", 5,12.50,1)
 second_order = Order("Spice Waala",3,10.99,2)
 third_order = Order("Korean BBQ",4,13.10,3)
 
-print("\n= 1st Food Order =")
+print("= 1st Food Order =")
 print(f"Food : {first_order.food}")
 print(f"Spice Level: {first_order.spice_level}")
 print(f"Price: {first_order.price}")
@@ -88,6 +90,7 @@ print(f"Quantity: {third_order.quantity}")
 
 
 # Shoe Store
+print("\n== Shoe Store ==\n")
 class Shoe:
     def __init__(self, brand, price, quantity, in_stock):
         self.brand = brand
@@ -114,7 +117,7 @@ def convert_to_percentage(sale_val = 0):
 # 1st shoes
 tax_value = 6
 sale_percentage = 0.2
-print("\n= 1st Shoe Order =")
+print("= 1st Shoe Order =")
 shoe_one = Shoe("Nike",55.10,2,True)
 print(f"Brand: {shoe_one.brand}")
 print(f"Price per pairs: ${shoe_one.price}")
@@ -151,6 +154,7 @@ print(f"Price after {convert_to_percentage(sale_percentage)}% sale: ${shoe_three
 print(f"Price Total (after tax ${tax_value}): ${shoe_three.add_tax(tax_value)}")
 
 
+print("\n== Summer Camp ==\n")
 # Summer Camp
 class SummerCamper:
     def __init__(self,fname,lname,role,school_status):
@@ -163,10 +167,13 @@ class SummerCamper:
 
     # display campers information
     def display_info(self):
+        print("\n")
         print(f"First name: {self.fname}")
         print(f"Last name: {self.lname}")
         print(f"Role: {self.role}")
+        print(f"Number absence permit: {self.num_absence_permit}")
         print(f"School status: {self.school_status}")
+        print("\n")
         return self
     
     # enroll participants before camp
@@ -175,32 +182,39 @@ class SummerCamper:
             print(f"{self.fname} is already enrolled!")
         else:
             self.registered = True
-            print(f"{self.fname} is now enrolled")
+            print(f"{self.fname} is just enrolled!")
             self.num_absence_permit = 3
         return self
     
     # permission to skip class based on number of absence permit
     def skip_class(self):
         if(self.num_absence_permit <= 0):
-            print("You can't skip class anymore!")
+            print(f"{self.fname}, You may not skip class!")
         else:
-            print("You may take the day off!")
+            self.num_absence_permit -= 1
+            print(f"{self.fname}, You may take the day off! (absence permit: {self.num_absence_permit})")
         return self
 
 # 1st campers
 camper_one = SummerCamper("Ally","Abby","Mentor","Senior")
+camper_one.display_info().enroll().display_info().skip_class() # this is chaining method
 
 # 2nd campers
 camper_two = SummerCamper("Benny","Bulls","Mentor","Senior")
+camper_two.display_info().enroll().display_info().skip_class().skip_class()
 
 # 3rd campers
 camper_three = SummerCamper("Celina","Zion","Mentor","Senior")
+camper_three.display_info().enroll().display_info().skip_class().skip_class().skip_class()
 
 # 4th campers
 camper_four = SummerCamper("Dan","Russ","Participants", "Freshman")
+camper_four.display_info().enroll().display_info().skip_class().skip_class()
 
 # 5th campers
 camper_five = SummerCamper("Lady","Bun","Participant","Sophomore")
+camper_five.display_info().enroll().display_info().skip_class().skip_class().skip_class()
 
 # 6th campers
 camper_six = SummerCamper("Lina","Pedro","Participant","Sophomore")
+camper_six.display_info().enroll().display_info().skip_class().skip_class()
