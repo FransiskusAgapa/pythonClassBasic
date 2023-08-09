@@ -152,7 +152,7 @@ print(f"Price Total (after tax ${tax_value}): ${shoe_three.add_tax(tax_value)}")
 
 
 # Summer Camp
-class SummerCamp:
+class SummerCamper:
     def __init__(self,fname,lname,role,school_status):
         self.fname = fname
         self.lname = lname
@@ -188,19 +188,19 @@ class SummerCamp:
         return self
 
 # 1st campers
-camper_one = SummerCamp("Ally","Abby","Mentor","Senior")
+camper_one = SummerCamper("Ally","Abby","Mentor","Senior")
 
 # 2nd campers
-camper_two = SummerCamp("Benny","Bulls","Mentor","Senior")
+camper_two = SummerCamper("Benny","Bulls","Mentor","Senior")
 
 # 3rd campers
-camper_three = SummerCamp("Celina","Zion","Mentor","Senior")
+camper_three = SummerCamper("Celina","Zion","Mentor","Senior")
 
 # 4th campers
-camper_four = SummerCamp("Dan","Russ","Participants", "Freshman")
+camper_four = SummerCamper("Dan","Russ","Participants", "Freshman")
 
 # 5th campers
-camper_five = SummerCamp("Lady","Bun","Participant","Sophomore")
+camper_five = SummerCamper("Lady","Bun","Participant","Sophomore")
 
 # 6th campers
-camper_six = SummerCamp("Lina","Pedro","Participant","Sophomore")
+camper_six = SummerCamper("Lina","Pedro","Participant","Sophomore")
