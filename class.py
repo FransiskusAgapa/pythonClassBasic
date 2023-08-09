@@ -149,3 +149,22 @@ print(f"Price for {shoe_three.quantity} pairs: ${shoe_three.price}")
 shoe_three.on_sale_by_percentage(sale_percentage) # update price with sale percentage
 print(f"Price after {convert_to_percentage(sale_percentage)}% sale: ${shoe_three.price}")
 print(f"Price Total (after tax ${tax_value}): ${shoe_three.add_tax(tax_value)}")
+
+
+# Summer Camp
+class SummerCamp:
+    def __init__(self,fname,lname,role,school_status,):
+        self.fname = fname
+        self.lname = lname
+        self.role = role # participant or mentor
+        self.school_status= school_status # freshman, sophomore, etc 
+        self.registered = False # default value whether somebody is registered
+
+    def display_info(self):
+        print(f"First name: {self.fname}")
+        print(f"Last name: {self.lname}")
+        print(f"Role: {self.role}")
+        print(f"School status: {self.school_status}")
+        return self
+    
+    
