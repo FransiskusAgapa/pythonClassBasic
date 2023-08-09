@@ -1,5 +1,6 @@
 import math
 
+# Students
 class student:
     def __init__(self):
         self.fname = "No-First-Name-Specified"
@@ -55,7 +56,7 @@ print(student_three.age)
 print(student_three.major)
 print(student_three.gpa)
 
-# restaurant order
+# Restaurant Order
 class Order:
     def __init__(self, food, spice_level, price, quantity):
         self.food = food
@@ -87,7 +88,6 @@ print(f"Quantity: {third_order.quantity}")
 
 
 # Shoe Store
-
 class Shoe:
     def __init__(self, brand, price, quantity, in_stock):
         self.brand = brand
@@ -107,7 +107,7 @@ class Shoe:
     def add_tax(self, tax):
         return math.trunc(tax + self.price)
 
-
+# ex: change 0.1 to 10% for display purpose
 def convert_to_percentage(sale_val = 0):
     return sale_val * 100
 
