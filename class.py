@@ -153,13 +153,15 @@ print(f"Price Total (after tax ${tax_value}): ${shoe_three.add_tax(tax_value)}")
 
 # Summer Camp
 class SummerCamp:
-    def __init__(self,fname,lname,role,school_status,):
+    def __init__(self,fname,lname,role,school_status):
         self.fname = fname
         self.lname = lname
         self.role = role # participant or mentor
         self.school_status= school_status # freshman, sophomore, etc 
         self.registered = False # default value whether somebody is registered
+        self.num_absence_permit = 0 # number of absence participants get to skip class/activity
 
+    # display campers information
     def display_info(self):
         print(f"First name: {self.fname}")
         print(f"Last name: {self.lname}")
@@ -167,4 +169,38 @@ class SummerCamp:
         print(f"School status: {self.school_status}")
         return self
     
+    # enroll participants before camp
+    def enroll(self):
+        if(self.registered):
+            print(f"{self.fname} is already enrolled!")
+        else:
+            self.registered = True
+            print(f"{self.fname} is now enrolled")
+            self.num_absence_permit = 3
+        return self
     
+    # permission to skip class based on number of absence permit
+    def skip_class(self):
+        if(self.num_absence_permit <= 0):
+            print("You can't skip class anymore!")
+        else:
+            print("You may take the day off!")
+        return self
+
+# 1st campers
+camper_one = SummerCamp("Ally","Abby","Mentor","Senior")
+
+# 2nd campers
+camper_two = SummerCamp("Benny","Bulls","Mentor","Senior")
+
+# 3rd campers
+camper_three = SummerCamp("Celina","Zion","Mentor","Senior")
+
+# 4th campers
+camper_four = SummerCamp("Dan","Russ","Participants", "Freshman")
+
+# 5th campers
+camper_five = SummerCamp("Lady","Bun","Participant","Sophomore")
+
+# 6th campers
+camper_six = SummerCamp("Lina","Pedro","Participant","Sophomore")
