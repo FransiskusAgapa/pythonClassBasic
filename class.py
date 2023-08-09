@@ -220,7 +220,7 @@ camper_six = SummerCamper("Lina","Pedro","Participant","Sophomore")
 camper_six.display_info().enroll().display_info().skip_class().skip_class()
 
 # Bank Account
-print("\n= Bank Account =")
+print("\n= Bank Account =\n")
 class Bank:
     num_of_account = 0
     def __init__(self,name,balance):
@@ -228,16 +228,21 @@ class Bank:
         self.balance = balance
         Bank.num_of_account += 1
     
+    def display_account(self):
+        print(f"Name: {self.name}\nBalance: ${self.balance}\n")
+        return self
+
     def deposit(self,amount):
         self.balance += amount
+        print(f"${amount} is deposited to {self.name}'s account!\n")
         return self
     
     def withdraw(self,amount):
         if(self.balance > amount):
             self.balance -= amount
-            print(f"${amount} successfully withdrawn!")
+            print(f"${amount} is withdrawn from {self.name}'s account!\n")
         else:
-            print("Insufficient balance!")
+            print(f"Withdraw ${amount} from {self.name}'s account canceled - Insufficient Balance!\n")
         return self
     
     @classmethod
@@ -247,6 +252,21 @@ class Bank:
 account_one = Bank("Lenny",100000)
 account_two = Bank("Buddy",50000)
 account_three = Bank("Angel",200000)
+
+# display account info
+account_one.display_account()
+account_two.display_account()
+account_three.display_account()
+
+# deposit
+account_one.deposit(50000)
+account_two.deposit(10000)
+account_three.deposit(60000)
+
+# withdraw
+account_one.withdraw(90000)
+account_three.withdraw(110000)
+account_three.withdraw(220000)
 
 # call a class method
 Bank.sum_of_account()
