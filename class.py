@@ -283,3 +283,59 @@ Bank.sum_of_account()
 account_one.is_millionaire(account_one.balance)
 account_two.is_millionaire(account_two.balance)
 account_three.is_millionaire(account_three.balance)
+
+# Association Between Classes
+print("\n")
+
+class BankAccount:
+    def __init__(self, int_rate, balance):
+        self.int_rate = int_rate
+        self.balance = balance
+    
+    def deposit(self,amount):
+        self.balance += amount
+        return amount
+    
+    def withdraw(self, amount):
+        tempBalance = self.balance
+        if(self.balance > 0 and self.balance > amount):
+            self.balance -= amount
+        if(tempBalance == self.balance): # no change means can't withdraw
+            return False 
+        else:
+            return True 
+    
+    def get_total_balance(self):
+        self.int_rate = 1 - self.int_rate
+        self.balance += self.int_rate
+        return self.balance
+    
+class User:
+    def __init__(self,f_name,l_name,email,int_rate=0.2,balance=0):
+        self.f_name = f_name
+        self.l_name = l_name
+        self.email = email
+        self.account = BankAccount(int_rate,balance)
+    
+    def to_deposit(self,amount):
+        self.account.deposit(amount)
+        print(f"${amount} deposited to {self.f_name}'s account!")
+        return self
+    
+    def to_withdraw(self,amount):
+        self.account.withdraw(amount)
+        print(f"${amount} withdrawn from {self.f_name}'s account!")
+        return self
+        
+    def display_info(self):
+        print(f"\nOwner: {self.f_name + ','+self.l_name[0]}\nEmail: {self.email}\nBalance: ${self.account.get_total_balance()}")
+        return self
+
+
+# 1st user
+user_one = User("Ben","Max","maxB@codingdojo.com")
+user_one.display_info().to_deposit(200).to_withdraw(50).display_info().to_deposit(200).to_withdraw(50).display_info()
+
+# # 2nd user
+user_two = User("Jonah","Lyn","LynJ@codingdojo.com",1.5,100)
+user_two.display_info()
